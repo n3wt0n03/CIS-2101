@@ -1,0 +1,4 @@
+#ignore all files containing .exe extension
+
+*.exe
+tempCodeRunnerFile.c

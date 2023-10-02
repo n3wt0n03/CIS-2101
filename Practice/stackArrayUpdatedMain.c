@@ -1,0 +1,1 @@
+/* A version of stack wherein the program asks the user to input if it wants to push, pop, print the top element or elements of the stack, or quit. */

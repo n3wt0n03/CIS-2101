@@ -1,3 +1,5 @@
+// Use typedef enum boolean in isMember()
+
 #include <stdio.h>
 #include <stdlib.h>
 #define SIZE 10
@@ -152,4 +154,4 @@ int main()
     return 0;
 }
 
-// Ask sir about the other constraints
+// If it is unique, then insert, else do not insert

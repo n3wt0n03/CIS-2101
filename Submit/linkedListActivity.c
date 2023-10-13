@@ -5,7 +5,7 @@ typedef struct node
 {
 	int data;
 	struct node *next;
-} *LIST, lType;
+} *LIST;
 
 void initialize(LIST *L)
 {
@@ -68,7 +68,7 @@ void insertSorted(LIST *L, int elem)
 	temp->next = NULL;
 
 	// Insertion in an empty list or at the beginning
-	if (*L == NULL || elem < (*L)->data)
+	if (*L == NULL || temp->data < (*L)->data)
 	{
 		temp->next = *L;
 		*L = temp;
@@ -77,8 +77,9 @@ void insertSorted(LIST *L, int elem)
 
 	previous = NULL; // is used to compare the current traversed node
 
-	for (trav = *L; trav != NULL && elem > trav->data; previous = trav, trav = trav->next)
+	for (trav = *L; trav != NULL && temp->data > trav->data; trav = trav->next)
 	{
+		previous = trav;
 	}
 
 	// Insertion in the middle or at the end
@@ -110,6 +111,17 @@ LIST deleteNode(LIST *L, int elem)
 	if (*L == NULL)
 	{
 		printf("The list is empty. There is nothing to delete\n");
+		return *L;
+	}
+
+	// if the element to be deleted is in the first node
+	if ((*L)->data == elem)
+	{
+		LIST temp = *L;
+		*L = (*L)->next; // becomes the new head
+		free(temp);
+		printf("Deleted the data %d\n", elem);
+		displayList(*L);
 		return *L;
 	}
 
@@ -155,4 +167,5 @@ void main()
 	retrieve(head, 3);
 
 	deleteNode(&head, 26);
+	deleteNode(&head, 20);
 }

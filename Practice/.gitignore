@@ -1,4 +1,5 @@
 #ignore all files containing .exe extension
 
 *.exe
+*.gch
 tempCodeRunnerFile.c

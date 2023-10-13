@@ -65,7 +65,7 @@ void deleteList(LIST *list, int pos)
     // delete pos 2
     if (pos <= list->count)
     {
-        for (int i = pos; i <= list->count; i++)
+        for (int i = pos; i < list->count; i++)
         {
             list->data[i] = list->data[i + 1];
         }
